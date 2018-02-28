@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/todo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+<!-- Page header -->
+<header>
+    <button id=showFormbtn class="showForm" onclick='showLoginForm(this)'>Login</button>
+    <form id="login" class="loginForm" method="GET">
+        <input type="text" id="loginUsername" name="userName" pattern=".{4,}" placeholder="Username" required autocomplete="off"/>
+        <input type="password" id="loginPassword" name="userPass" pattern=".{4,}" placeholder="Password" required autocomplete="off"/>
+        <input type="submit" value="Login"/>
+        <label id="wrongLable">Sorry, Wrong username or password.</label>
+    </form>
+    <h2 id="welcomeMsg" onclick='logout()'>WELCOME</h2>
+
+</header>
+
+<!-- Maine page box -->
+<section class="mainContentBox">
+
+    <!-- Top bar navigation menu -->
+    <nav>
+        <ul>
+            <li><a id=allNav class="active" onclick='stateView("all")'>A L L</a></li>
+            <li><a id=todoNav onclick='stateView("todo")'>T O D O</a></li>
+            <li><a id=doingNav onclick='stateView("doing")'>D O I N G</a></li>
+            <li><a id=doneNav onclick='stateView("done")'>D O N E</a></li>
+        </ul>
+    </nav>
+
+    <!-- New to-do input -->
+    <article class="todoList">
+
+        <form id="addTodo" class="addTodo" method="POST">
+            <input type="text" id="todoTitle" name="todoTitle" placeholder="What to do..." required autocomplete="off"/>
+            <input type="submit" value=""/>
+            <input type="submit" class="addSymbol" value=""/>
+        </form>
+
+        <ul id="todoItems" contenteditable="false"></ul>
+
+    </article>
+
+</section>
+
+
+<!-- Footer -->
+<footer>
+    <p>TODO | 2017 | by Elias Frykberg フライク</p>
+    <p><i>Hurry up and do some stuff.</i></p>
+</footer>
+
+<script src="js/users.js"></script>
+<script src="js/expand.js"></script>
+<script src="js/addTodo.js"></script>
+<script src="js/changeTodo.js"></script>
+<script src="js/getJsonData.js"></script>
+
+</body>
+</html>
